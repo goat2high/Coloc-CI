@@ -1,0 +1,9 @@
+from app.routes.auth          import auth_bp          # noqa
+from app.routes.profile       import profile_bp       # noqa
+from app.routes.listings      import listings_bp      # noqa
+from app.routes.matching      import matching_bp      # noqa
+from app.routes.messages      import messages_bp      # noqa
+from app.routes.favorites     import favorites_bp     # noqa
+from app.routes.reports       import reports_bp       # noqa
+from app.routes.notifications import notifications_bp # noqa
+from app.routes.admin         import admin_bp         # noqa

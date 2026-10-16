@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ColocCI – Documentation du Projet</title>
+  <meta name="description" content="Documentation complète de la plateforme ColocCI – Colocation en Côte d'Ivoire. Backend, Frontend, Algorithme de Matching, Base de données et plus." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <div class="logo-icon">🏠</div>
+        <div class="logo-text">
+          <span class="logo-name">ColocCI</span>
+          <span class="logo-sub">Documentation</span>
+        </div>
+      </div>
+      <button class="sidebar-close" id="sidebarClose" aria-label="Fermer le menu">✕</button>
+    </div>
+
+    <nav class="sidebar-nav" role="navigation" aria-label="Navigation principale">
+      <p class="nav-label">Documents</p>
+      <ul class="nav-list" id="navList">
+        <li>
+          <button class="nav-item active" data-doc="01" id="nav-01">
+            <span class="nav-icon">🎯</span>
+            <span class="nav-text">Description du Problème</span>
+            <span class="nav-badge">01</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-item" data-doc="02" id="nav-02">
+            <span class="nav-icon">⚙️</span>
+            <span class="nav-text">Cahier des Charges Backend</span>
+            <span class="nav-badge">02</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-item" data-doc="03" id="nav-03">
+            <span class="nav-icon">🎨</span>
+            <span class="nav-text">Cahier des Charges Frontend</span>
+            <span class="nav-badge">03</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-item" data-doc="04" id="nav-04">
+            <span class="nav-icon">🤝</span>
+            <span class="nav-text">Algorithme de Matching</span>
+            <span class="nav-badge">04</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-item" data-doc="05" id="nav-05">
+            <span class="nav-icon">🗄️</span>
+            <span class="nav-text">Schéma Base de Données</span>
+            <span class="nav-badge">05</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-item" data-doc="06" id="nav-06">
+            <span class="nav-icon">🛣️</span>
+            <span class="nav-text">Routes Flask</span>
+            <span class="nav-badge">06</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-item" data-doc="07" id="nav-07">
+            <span class="nav-icon">📖</span>
+            <span class="nav-text">README du Projet</span>
+            <span class="nav-badge">07</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="progress-info">
+        <span class="progress-label">Progression</span>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <span class="progress-text" id="progressText">1 / 7</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Main content -->
+  <main class="main" id="main">
+    <!-- Top bar -->
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="breadcrumb" id="breadcrumb">
+        <span class="bc-root">ColocCI</span>
+        <span class="bc-sep">›</span>
+        <span class="bc-current" id="bcCurrent">Description du Problème</span>
+      </div>
+      <div class="topbar-actions">
+        <button class="theme-btn" id="themeBtn" aria-label="Changer de thème">🌙</button>
+        <div class="doc-counter" id="docCounter">1/7</div>
+      </div>
+    </header>
+
+    <!-- Document viewer -->
+    <div class="content-wrap">
+      <div class="doc-panel" id="docPanel">
+
+        <!-- ── DOC 01 ── -->
+        <article class="doc-page active" id="doc-01">
+          <div class="doc-hero" style="--accent: #f59e0b;">
+            <div class="doc-hero-content">
+              <div class="doc-number">01</div>
+              <h1 class="doc-title">Description du Problème</h1>
+              <p class="doc-subtitle">Plateforme de Colocation – Côte d'Ivoire</p>
+            </div>
+            <div class="doc-hero-icon">🎯</div>
+          </div>
+          <div class="doc-body">
+            <section class="doc-section">
+              <h2>Contexte</h2>
+              <p>En Côte d'Ivoire, particulièrement à Abidjan et dans les grandes villes universitaires (Bouaké, Grand-Bassam, Yamoussoukro…), un nombre croissant d'étudiants et de jeunes travailleurs recherchent des solutions de logement abordables. La colocation apparaît comme une alternative intéressante face à la cherté des loyers et à la rareté des logements individuels adaptés aux budgets modestes.</p>
+            </section>
+
+            <section class="doc-section">
+              <h2>Problème identifié</h2>
+              <p>Actuellement, il n'existe pas de plateforme dédiée et structurée permettant de trouver ou de proposer facilement une colocation de manière fiable. Les personnes intéressées ont principalement recours à :</p>
+              <ul class="styled-list warn">
+                <li>Des groupes Facebook et WhatsApp peu organisés</li>
+                <li>Des annonces dispersées sur les réseaux sociaux</li>
+                <li>Le bouche-à-oreille</li>
+              </ul>
+              <p>Ces méthodes présentent plusieurs limites majeures :</p>
+              <ul class="styled-list danger">
+                <li>Manque de filtres de recherche pertinents (budget, quartier, mode de vie, etc.)</li>
+                <li>Absence de système de compatibilité entre colocataires</li>
+                <li>Risques élevés d'arnaques et d'informations non fiables</li>
+                <li>Difficulté à évaluer le profil et le mode de vie des potentiels colocataires</li>
+                <li>Processus de recherche long, désorganisé et peu sécurisé</li>
+              </ul>
+            </section>
+
+            <section class="doc-section">
+              <h2>Conséquences</h2>
+              <div class="cards-grid">
+                <div class="mini-card red">
+                  <div class="mini-card-icon">⏱️</div>
+                  <div class="mini-card-text">Perte de temps importante pour les chercheurs de logement</div>
+                </div>
+                <div class="mini-card red">
+                  <div class="mini-card-icon">⚔️</div>
+                  <div class="mini-card-text">Colocations mal assorties (conflits de mode de vie, problèmes d'hygiène)</div>
+                </div>
+                <div class="mini-card red">
+                  <div class="mini-card-icon">🚨</div>
+                  <div class="mini-card-text">Sentiment d'insécurité lié aux arnaques fréquentes</div>
+                </div>
+                <div class="mini-card red">
+                  <div class="mini-card-icon">📉</div>
+                  <div class="mini-card-text">Sous-exploitation du potentiel de la colocation comme solution accessible</div>
+                </div>
+              </div>
+            </section>
+
+            <section class="doc-section">
+              <h2>Objectif du projet</h2>
+              <div class="highlight-box">
+                <p>Le projet vise à répondre à ce besoin en proposant une plateforme web dédiée à la colocation en Côte d'Ivoire. Elle permettra aux utilisateurs de publier ou de rechercher des colocations selon des critères précis, tout en intégrant un système de matching basé sur la compatibilité des profils (budget, mode de vie, habitudes, préférences…), afin de faciliter des mises en relation plus pertinentes, plus rapides et plus sécurisées.</p>
+              </div>
+            </section>
+          </div>
+        </article>
+
+        <!-- ── DOC 02 ── -->
+        <article class="doc-page" id="doc-02">
+          <div class="doc-hero" style="--accent: #8b5cf6;">
+            <div class="doc-hero-content">
+              <div class="doc-number">02</div>
+              <h1 class="doc-title">Cahier des Charges – Backend</h1>
+              <p class="doc-subtitle">Plateforme de Colocation – Côte d'Ivoire</p>
+            </div>
+            <div class="doc-hero-icon">⚙️</div>
+          </div>
+          <div class="doc-body">
+            <section class="doc-section">
+              <h2>Objectif</h2>
+              <p>Développer le backend d'une plateforme de colocation permettant la gestion des utilisateurs, des annonces, du système de matching, de la messagerie et de l'administration, de manière sécurisée, performante et évolutive.</p>
+            </section>
+
+            <section class="doc-section">
+              <h2>Stack technique recommandée</h2>
+              <div class="tech-stack">
+                <div class="tech-item"><span class="tech-tag py">Python 3.11+</span></div>
+                <div class="tech-item"><span class="tech-tag flask">Flask</span></div>
+                <div class="tech-item"><span class="tech-tag db">MySQL</span></div>
+                <div class="tech-item"><span class="tech-tag orm">SQLAlchemy</span></div>
+                <div class="tech-item"><span class="tech-tag auth">Flask-JWT-Extended</span></div>
+                <div class="tech-item"><span class="tech-tag cloud">Cloudinary / AWS S3</span></div>
+                <div class="tech-item"><span class="tech-tag mail">Flask-Mail</span></div>
+                <div class="tech-item"><span class="tech-tag cors">Flask-CORS</span></div>
+              </div>
+            </section>
+
+            <section class="doc-section">
+              <h2>Fonctionnalités principales</h2>
+              <div class="feature-table-wrap">
+                <table class="feature-table">
+                  <thead>
+                    <tr><th>Module</th><th>Fonctionnalités</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><span class="mod-badge">Authentification</span></td><td>Inscription, connexion, déconnexion, réinitialisation de mot de passe, vérification d'email</td></tr>
+                    <tr><td><span class="mod-badge">Profils</span></td><td>Création et modification du profil (âge, statut, budget, mode de vie, fumeur, animaux, propreté…)</td></tr>
+                    <tr><td><span class="mod-badge">Annonces</span></td><td>Création, modification, suppression et consultation des annonces de colocation</td></tr>
+                    <tr><td><span class="mod-badge">Recherche</span></td><td>Recherche multicritères (ville, quartier, budget, type de chambre, etc.)</td></tr>
+                    <tr><td><span class="mod-badge">Matching</span></td><td>Calcul du score de compatibilité entre un chercheur et une annonce</td></tr>
+                    <tr><td><span class="mod-badge">Messagerie</span></td><td>Envoi et réception de messages privés liés à une annonce</td></tr>
+                    <tr><td><span class="mod-badge">Favoris</span></td><td>Ajout / suppression d'annonces en favoris</td></tr>
+                    <tr><td><span class="mod-badge">Signalement</span></td><td>Signalement d'annonces ou d'utilisateurs</td></tr>
+                    <tr><td><span class="mod-badge">Administration</span></td><td>Gestion des utilisateurs, annonces, signalements et modération</td></tr>
+                    <tr><td><span class="mod-badge">Notifications</span></td><td>Notifications internes (nouveau message, nouvelle candidature, etc.)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="doc-section">
+              <h2>Entités de la base de données</h2>
+              <div class="entity-list">
+                <span class="entity-chip">User</span>
+                <span class="entity-chip">Profile</span>
+                <span class="entity-chip">Listing</span>
+                <span class="entity-chip">Photo</span>
+                <span class="entity-chip">Message</span>
+                <span class="entity-chip">Favorite</span>
+                <span class="entity-chip">Report</span>
+                <span class="entity-chip">Notification</span>
+                <span class="entity-chip optional">CompatibilityScore</span>
+              </div>
+            </section>
+
+            <section class="doc-section">
+              <h2>Exigences non fonctionnelles</h2>
+              <div class="nfr-list">
+                <div class="nfr-item"><span class="nfr-icon">🔒</span><div><strong>Sécurité</strong> – Mots de passe hashés (bcrypt), protection CSRF, gestion des rôles</div></div>
+                <div class="nfr-item"><span class="nfr-icon">⚡</span><div><strong>Performance</strong> – Temps de réponse &lt; 500 ms pour les recherches courantes</div></div>
+                <div class="nfr-item"><span class="nfr-icon">📈</span><div><strong>Scalabilité</strong> – Architecture permettant l'ajout futur de nouvelles fonctionnalités</div></div>
+                <div class="nfr-item"><span class="nfr-icon">📄</span><div><strong>Documentation</strong> – API documentée (Swagger / Flasgger recommandé)</div></div>
+              </div>
+            </section>
+
+            <section class="doc-section">
+              <h2>Priorisation MVP</h2>
+              <div class="mvp-grid">
+                <div class="mvp-card v1">
+                  <div class="mvp-header">Version 1 – MVP</div>
+                  <ul>
+                    <li>✅ Authentification</li>
+                    <li>✅ Gestion des profils</li>
+                    <li>✅ CRUD Annonces</li>
+                    <li>✅ Recherche avec filtres de base</li>
+                    <li>✅ Calcul du score de matching</li>
+                    <li>✅ Messagerie simple</li>
+                  </ul>
+                </div>
+                <div class="mvp-card v2">
+                  <div class="mvp-header">Version 2</div>
+                  <ul>
+                    <li>⬜ Favoris</li>
+                    <li>⬜ Signalements</li>
+                    <li>⬜ Notifications</li>
+                    <li>⬜ Tableau de bord admin</li>
+                    <li>⬜ Upload cloud des photos</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </div>
+        </article>
+
+        <!-- ── DOC 03 ── -->
+        <article class="doc-page" id="doc-03">
+          <div class="doc-hero" style="--accent: #06b6d4;">
+            <div class="doc-hero-content">
+              <div class="doc-number">03</div>
+              <h1 class="doc-title">Cahier des Charges – Frontend</h1>
+              <p class="doc-subtitle">Plateforme de Colocation – Côte d'Ivoire</p>
+            </div>
+            <div class="doc-hero-icon">🎨</div>
+          </div>
+          <div class="doc-body">
+            <section class="doc-section">
+              <h2>Objectif</h2>
+              <p>Concevoir une interface utilisateur moderne, intuitive et responsive permettant aux utilisateurs de rechercher, publier et gérer des colocations facilement, tout en visualisant clairement le score de compatibilité.</p>
+            </section>
+
+            <section class="doc-section">
+              <h2>Stack technique recommandée</h2>
+              <div class="tech-stack">
+                <div class="tech-item"><span class="tech-tag html">HTML5</span></div>
+                <div class="tech-item"><span class="tech-tag css">CSS3</span></div>
+                <div class="tech-item"><span class="tech-tag js">JavaScript</span></div>
+                <div class="tech-item"><span class="tech-tag api">Fetch API / Axios</span></div>
+              </div>
+            </section>
+
+            <section class="doc-section">
+              <h2>Pages principales</h2>
+              <div class="pages-grid">
+                <div class="page-card">
+                  <div class="page-icon">🏠</div>
+                  <div class="page-info">
+                    <strong>Accueil</strong>
+                    <p>Présentation de la plateforme + accès rapide « Trouver » / « Créer »</p>
+                  </div>
+                </div>
+                <div class="page-card">
+                  <div class="page-icon">🔐</div>
+                  <div class="page-info">
+                    <strong>Inscription / Connexion</strong>
+                    <p>Formulaires d'authentification</p>
+                  </div>
+                </div>
+                <div class="page-card">
+                  <div class="page-icon">👤</div>
+                  <div class="page-info">
+                    <strong>Profil utilisateur</strong>
+                    <p>Consultation et modification du profil + préférences</p>
+                  </div>
+                </div>
+                <div class="page-card">
+                  <div class="page-icon">🔍</div>
+                  <div class="page-info">
+                    <strong>Recherche de colocation</strong>
+                    <p>Filtres avancés + liste avec score de compatibilité</p>
+                  </div>
+                </div>
+                <div class="page-card">
+                  <div class="page-icon">📋</div>
+                  <div class="page-info">
+                    <strong>Détail d'une annonce</strong>
+                    <p>Affichage complet + bouton contact + score détaillé</p>
+                  </div>
+                </div>
+                <div class="page-card">
+                  <div class="page-icon">✏️</div>
+                  <div class="page-info">
+                    <strong>Création / Édition d'annonce</strong>
+                    <p>Formulaire de publication avec upload de photos</p>
+                  </div>
+                </div>
+                <div class="page-card">
+                  <div class="page-icon">💬</div>
+                  <div class="page-info">
+                    <strong>Messagerie</strong>
+                    <p>Liste des conversations + interface de chat</p>
+                  </div>
+                </div>
+                <div class="page-card">
+                  <div class="page-icon">📂</div>
+                  <div class="page-info">
+                    <strong>Mes annonces</strong>
+                    <p>Gestion des annonces publiées par l'utilisateur</p>
+                  </div>
+                </div>
+                <div class="page-card">
+                  <div class="page-icon">❤️</div>
+                  <div class="page-info">
+                    <strong>Mes favoris</strong>
+                    <p>Liste des annonces sauvegardées</p>
+                  </div>
+                </div>
+                <div class="page-card admin">
+                  <div class="page-icon">🛡️</div>
+                  <div class="page-info">
+                    <strong>Tableau de bord Admin</strong>
+                    <p>Interface de modération (réservée aux administrateurs)</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="doc-section">
+              <h2>Fonctionnalités UI/UX prioritaires</h2>
+              <div class="ux-list">
+                <div class="ux-item"><span class="ux-icon">📊</span><span>Affichage clair du <strong>score de compatibilité</strong> (pourcentage + détail par critère)</span></div>
+                <div class="ux-item"><span class="ux-icon">🎛️</span><span>Filtres de recherche dynamiques</span></div>
+                <div class="ux-item"><span class="ux-icon">📸</span><span>Upload multiple de photos avec prévisualisation</span></div>
+                <div class="ux-item"><span class="ux-icon">📱</span><span>Design <strong>responsive</strong> – approche mobile-first</span></div>
+                <div class="ux-item"><span class="ux-icon">✅</span><span>Messages de confirmation et gestion des erreurs utilisateur</span></div>
+                <div class="ux-item"><span class="ux-icon">⏳</span><span>Indicateurs de chargement (spinners / skeletons)</span></div>
+                <div class="ux-item"><span class="ux-icon">🔔</span><span>Système de notifications visuelles</span></div>
+              </div>
+            </section>
+
+            <section class="doc-section">
+              <h2>Exigences non fonctionnelles</h2>
+              <div class="nfr-list">
+                <div class="nfr-item"><span class="nfr-icon">🌐</span><div><strong>Compatibilité</strong> – Chrome, Firefox, Edge, Safari</div></div>
+                <div class="nfr-item"><span class="nfr-icon">⚡</span><div><strong>Performance</strong> – Chargement &lt; 3 secondes</div></div>
+                <div class="nfr-item"><span class="nfr-icon">🇫🇷</span><div><strong>Langue</strong> – Interface entièrement en français</div></div>
+                <div class="nfr-item"><span class="nfr-icon">♿</span><div><strong>Accessibilité</strong> – Contrastes, labels, navigation clavier</div></div>
+              </div>
+            </section>
+          </div>
+        </article>
+
+        <!-- ── DOC 04 ── -->
+        <article class="doc-page" id="doc-04">
+          <div class="doc-hero" style="--accent: #10b981;">
+            <div class="doc-hero-content">
+              <div class="doc-number">04</div>
+              <h1 class="doc-title">Algorithme de Matching</h1>
+              <p class="doc-subtitle">Plateforme de Colocation – Côte d'Ivoire</p>
+            </div>
+            <div class="doc-hero-icon">🤝</div>
+          </div>
+          <div class="doc-body">
+            <section class="doc-section">
+              <h2>Principe général</h2>
+              <p>L'algorithme calcule un <strong>score de compatibilité</strong> (de 0 à 100 %) entre le profil de la personne qui cherche une colocation et chaque annonce. Le score final est une <strong>moyenne pondérée</strong> des différents critères.</p>
+            </section>
+
+            <section class="doc-section">
+              <h2>Critères et pondération</h2>
+              <div class="criteria-visual">
+                <div class="criterion-bar">
+                  <div class="crit-label">Budget</div>
+                  <div class="crit-bar-wrap"><div class="crit-bar" style="width:25%; --c:#f59e0b"></div></div>
+                  <div class="crit-pct">25%</div>
+                </div>
+                <div class="criterion-bar">
+                  <div class="crit-label">Quartier / Ville</div>
+                  <div class="crit-bar-wrap"><div class="crit-bar" style="width:20%; --c:#3b82f6"></div></div>
+                  <div class="crit-pct">20%</div>
+                </div>
+                <div class="criterion-bar">
+                  <div class="crit-label">Mode de vie</div>
+                  <div class="crit-bar-wrap"><div class="crit-bar" style="width:15%; --c:#8b5cf6"></div></div>
+                  <div class="crit-pct">15%</div>
+                </div>
+                <div class="criterion-bar">
+                  <div class="crit-label">Fumeur</div>
+                  <div class="crit-bar-wrap"><div class="crit-bar" style="width:10%; --c:#ef4444"></div></div>
+                  <div class="crit-pct">10%</div>
+                </div>
+                <div class="criterion-bar">
+                  <div class="crit-label">Animaux</div>
+                  <div class="crit-bar-wrap"><div class="crit-bar" style="width:10%; --c:#10b981"></div></div>
+                  <div class="crit-pct">10%</div>
+                </div>
+                <div class="criterion-bar">
+                  <div class="crit-label">Type de chambre</div>
+                  <div class="crit-bar-wrap"><div class="crit-bar" style="width:8%; --c:#06b6d4"></div></div>
+                  <div class="crit-pct">8%</div>
+                </div>
+                <div class="criterion-bar">
+                  <div class="crit-label">Salle de bain</div>
+                  <div class="crit-bar-wrap"><div class="crit-bar" style="width:5%; --c:#f97316"></div></div>
+                  <div class="crit-pct">5%</div>
+                </div>
+                <div class="criterion-bar">
+                  <div class="crit-label">Sexe préféré</div>
+                  <div class="crit-bar-wrap"><div class="crit-bar" style="width:4%; --c:#ec4899"></div></div>
+                  <div class="crit-pct">4%</div>
+                </div>
+                <div class="criterion-bar">
+                  <div class="crit-label">Propreté</div>
+                  <div class="crit-bar-wrap"><div class="crit-bar" style="width:3%; --c:#84cc16"></div></div>
+                  <div class="crit-pct">3%</div>
+                </div>
+              </div>
+            </section>
+
+            <section class="doc-section">
+              <h2>Fonctions de calcul (Python)</h2>
+              <pre class="code-block"><code><span class="kw">def</span> <span class="fn">score_budget</span>(budget_chercheur, loyer_annonce, charges=<span class="num">0</span>):
+    total = loyer_annonce + charges
+    <span class="kw">if</span> total &lt;= budget_chercheur:
+        <span class="kw">return</span> <span class="num">100</span>
+    difference = total - budget_chercheur
+    <span class="kw">if</span> difference &lt;= <span class="num">20000</span>:      <span class="cm"># 20 000 FCFA de marge</span>
+        <span class="kw">return</span> <span class="num">80</span>
+    <span class="kw">elif</span> difference &lt;= <span class="num">40000</span>:
+        <span class="kw">return</span> <span class="num">50</span>
+    <span class="kw">else</span>:
+        <span class="kw">return</span> <span class="num">0</span>
+
+<span class="kw">def</span> <span class="fn">score_quartier</span>(quartier_chercheur, quartier_annonce, ville_chercheur, ville_annonce):
+    <span class="kw">if</span> ville_chercheur != ville_annonce:
+        <span class="kw">return</span> <span class="num">0</span>
+    <span class="kw">if</span> quartier_chercheur == quartier_annonce:
+        <span class="kw">return</span> <span class="num">100</span>
+    quartiers_proches = {
+        <span class="str">"Cocody"</span>: [<span class="str">"Riviera"</span>, <span class="str">"Angré"</span>, <span class="str">"2 Plateaux"</span>],
+        <span class="str">"Riviera"</span>: [<span class="str">"Cocody"</span>, <span class="str">"Angré"</span>],
+        <span class="str">"Yopougon"</span>: [<span class="str">"Songon"</span>],
+    }
+    <span class="kw">if</span> quartier_annonce <span class="kw">in</span> quartiers_proches.get(quartier_chercheur, []):
+        <span class="kw">return</span> <span class="num">70</span>
+    <span class="kw">return</span> <span class="num">30</span>
+
+<span class="kw">def</span> <span class="fn">score_exact</span>(valeur1, valeur2):
+    <span class="kw">if</span> valeur1 <span class="kw">is None or</span> valeur2 <span class="kw">is None</span>:
+        <span class="kw">return</span> <span class="num">70</span>
+    <span class="kw">return</span> <span class="num">100</span> <span class="kw">if</span> valeur1 == valeur2 <span class="kw">else</span> <span class="num">0</span>
+
+<span class="kw">def</span> <span class="fn">score_mode_vie</span>(mode1, mode2):
+    <span class="kw">if</span> mode1 == mode2:
+        <span class="kw">return</span> <span class="num">100</span>
+    compat = {
+        (<span class="str">"calme"</span>, <span class="str">"mixte"</span>): <span class="num">70</span>,
+        (<span class="str">"social"</span>, <span class="str">"mixte"</span>): <span class="num">70</span>,
+        (<span class="str">"calme"</span>, <span class="str">"social"</span>): <span class="num">20</span>,
+    }
+    <span class="kw">return</span> compat.get((mode1, mode2), <span class="num">20</span>) <span class="kw">or</span> compat.get((mode2, mode1), <span class="num">20</span>)</code></pre>
+            </section>
+
+            <section class="doc-section">
+              <h2>Fonction principale</h2>
+              <pre class="code-block"><code><span class="kw">def</span> <span class="fn">calculer_compatibilite</span>(chercheur: dict, annonce: dict) -&gt; int:
+    scores = {
+        <span class="str">'budget'</span>: score_budget(chercheur[<span class="str">'budget_max'</span>], annonce[<span class="str">'loyer'</span>], annonce.get(<span class="str">'charges'</span>, <span class="num">0</span>)),
+        <span class="str">'quartier'</span>: score_quartier(chercheur.get(<span class="str">'quartier'</span>), annonce.get(<span class="str">'quartier'</span>),
+                                     chercheur.get(<span class="str">'ville'</span>), annonce.get(<span class="str">'ville'</span>)),
+        <span class="str">'mode_vie'</span>: score_mode_vie(chercheur.get(<span class="str">'mode_vie'</span>), annonce.get(<span class="str">'mode_vie'</span>)),
+        <span class="str">'fumeur'</span>: score_exact(chercheur.get(<span class="str">'fumeur'</span>), annonce.get(<span class="str">'fumeur'</span>)),
+        <span class="str">'animaux'</span>: score_exact(chercheur.get(<span class="str">'animaux'</span>), annonce.get(<span class="str">'animaux'</span>)),
+        <span class="str">'type_chambre'</span>: score_exact(chercheur.get(<span class="str">'type_chambre'</span>), annonce.get(<span class="str">'type_chambre'</span>)),
+    }
+    poids = {
+        <span class="str">'budget'</span>: <span class="num">0.25</span>, <span class="str">'quartier'</span>: <span class="num">0.20</span>, <span class="str">'mode_vie'</span>: <span class="num">0.15</span>,
+        <span class="str">'fumeur'</span>: <span class="num">0.10</span>, <span class="str">'animaux'</span>: <span class="num">0.10</span>, <span class="str">'type_chambre'</span>: <span class="num">0.08</span>,
+    }
+    score_final = <span class="fn">sum</span>(scores.get(c, <span class="num">50</span>) * p <span class="kw">for</span> c, p <span class="kw">in</span> poids.items())
+    <span class="kw">return</span> <span class="fn">round</span>(score_final)</code></pre>
+            </section>
+
+            <section class="doc-section">
+              <h2>Affichage recommandé (Frontend)</h2>
+              <div class="score-legend">
+                <div class="score-item green"><div class="score-badge">≥ 80%</div><div class="score-label">Bonne compatibilité</div></div>
+                <div class="score-item orange"><div class="score-badge">60–79%</div><div class="score-label">Compatibilité moyenne</div></div>
+                <div class="score-item red"><div class="score-badge">&lt; 60%</div><div class="score-label">Faible compatibilité</div></div>
+              </div>
+            </section>
+          </div>
+        </article>
+
+        <!-- ── DOC 05 ── -->
+        <article class="doc-page" id="doc-05">
+          <div class="doc-hero" style="--accent: #3b82f6;">
+            <div class="doc-hero-content">
+              <div class="doc-number">05</div>
+              <h1 class="doc-title">Schéma de la Base de Données</h1>
+              <p class="doc-subtitle">Plateforme de Colocation – Côte d'Ivoire</p>
+            </div>
+            <div class="doc-hero-icon">🗄️</div>
+          </div>
+          <div class="doc-body">
+            <section class="doc-section">
+              <h2>Technologies</h2>
+              <div class="tech-stack">
+                <div class="tech-item"><span class="tech-tag db">MySQL</span></div>
+                <div class="tech-item"><span class="tech-tag orm">SQLAlchemy (Flask)</span></div>
+              </div>
+            </section>
+
+            <section class="doc-section">
+              <h2>Relations principales</h2>
+              <div class="er-diagram">
+                <div class="er-entity primary">
+                  <div class="er-name">👤 User</div>
+                  <div class="er-relations">
+                    <span>1 ─── 1 Profile</span>
+                    <span>1 ─── * Listing</span>
+                    <span>1 ─── * Message</span>
+                    <span>1 ─── * Favorite</span>
+                    <span>1 ─── * Report</span>
+                    <span>1 ─── * Notification</span>
+                  </div>
+                </div>
+                <div class="er-entity secondary">
+                  <div class="er-name">🏠 Listing</div>
+                  <div class="er-relations">
+                    <span>1 ─── * Photo</span>
+                    <span>1 ─── * Favorite</span>
+                    <span>1 ─── * Report</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div class="db-tables">
+
+              <section class="doc-section">
+                <h2>Table <code>users</code></h2>
+                <div class="feature-table-wrap">
+                  <table class="feature-table db-table">
+                    <thead><tr><th>Champ</th><th>Type</th><th>Contraintes</th><th>Description</th></tr></thead>
+                    <tbody>
+                      <tr><td><code>id</code></td><td>INT</td><td><span class="constraint pk">PK</span></td><td>Identifiant unique</td></tr>
+                      <tr><td><code>email</code></td><td>VARCHAR(120)</td><td><span class="constraint uk">UNIQUE, NOT NULL</span></td><td>Email de connexion</td></tr>
+                      <tr><td><code>password_hash</code></td><td>VARCHAR(255)</td><td>NOT NULL</td><td>Mot de passe hashé (bcrypt)</td></tr>
+                      <tr><td><code>role</code></td><td>ENUM</td><td>DEFAULT 'user'</td><td>user / admin</td></tr>
+                      <tr><td><code>is_verified</code></td><td>BOOLEAN</td><td>DEFAULT FALSE</td><td>Email vérifié</td></tr>
+                      <tr><td><code>created_at</code></td><td>DATETIME</td><td>DEFAULT NOW()</td><td>Date de création</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+
+              <section class="doc-section">
+                <h2>Table <code>profiles</code></h2>
+                <div class="feature-table-wrap">
+                  <table class="feature-table db-table">
+                    <thead><tr><th>Champ</th><th>Type</th><th>Contraintes</th><th>Description</th></tr></thead>
+                    <tbody>
+                      <tr><td><code>id</code></td><td>INT</td><td><span class="constraint pk">PK</span></td><td>Identifiant unique</td></tr>
+                      <tr><td><code>user_id</code></td><td>INT</td><td><span class="constraint fk">FK → users</span></td><td>Lien utilisateur</td></tr>
+                      <tr><td><code>first_name</code></td><td>VARCHAR(50)</td><td>NOT NULL</td><td>Prénom</td></tr>
+                      <tr><td><code>age</code></td><td>INT</td><td>–</td><td>Âge</td></tr>
+                      <tr><td><code>gender</code></td><td>ENUM</td><td>–</td><td>Homme / Femme / Autre</td></tr>
+                      <tr><td><code>status</code></td><td>ENUM</td><td>–</td><td>Étudiant / Travailleur</td></tr>
+                      <tr><td><code>city</code></td><td>VARCHAR(100)</td><td>–</td><td>Ville</td></tr>
+                      <tr><td><code>budget_max</code></td><td>INT</td><td>–</td><td>Budget maximum (FCFA)</td></tr>
+                      <tr><td><code>lifestyle</code></td><td>ENUM</td><td>–</td><td>Calme / Social / Mixte</td></tr>
+                      <tr><td><code>smoker</code></td><td>BOOLEAN</td><td>DEFAULT FALSE</td><td>Fumeur</td></tr>
+                      <tr><td><code>cleanliness</code></td><td>INT</td><td>CHECK 1–5</td><td>Niveau de propreté</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+
+              <section class="doc-section">
+                <h2>Table <code>listings</code></h2>
+                <div class="feature-table-wrap">
+                  <table class="feature-table db-table">
+                    <thead><tr><th>Champ</th><th>Type</th><th>Contraintes</th><th>Description</th></tr></thead>
+                    <tbody>
+                      <tr><td><code>id</code></td><td>INT</td><td><span class="constraint pk">PK</span></td><td>Identifiant unique</td></tr>
+                      <tr><td><code>user_id</code></td><td>INT</td><td><span class="constraint fk">FK → users</span></td><td>Propriétaire</td></tr>
+                      <tr><td><code>title</code></td><td>VARCHAR(150)</td><td>NOT NULL</td><td>Titre de l'annonce</td></tr>
+                      <tr><td><code>city</code></td><td>VARCHAR(100)</td><td>NOT NULL</td><td>Ville</td></tr>
+                      <tr><td><code>rent</code></td><td>INT</td><td>NOT NULL</td><td>Loyer (FCFA)</td></tr>
+                      <tr><td><code>room_type</code></td><td>ENUM</td><td>NOT NULL</td><td>Privée / Partagée</td></tr>
+                      <tr><td><code>furnished</code></td><td>BOOLEAN</td><td>DEFAULT FALSE</td><td>Meublé</td></tr>
+                      <tr><td><code>wifi</code></td><td>BOOLEAN</td><td>DEFAULT FALSE</td><td>Wi-Fi inclus</td></tr>
+                      <tr><td><code>status</code></td><td>ENUM</td><td>DEFAULT 'active'</td><td>active / inactive / rented</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+
+              <section class="doc-section">
+                <h2>Autres tables</h2>
+                <div class="cards-grid">
+                  <div class="mini-card blue"><div class="mini-card-icon">📷</div><div class="mini-card-text"><strong>photos</strong> — filename, is_main, listing_id</div></div>
+                  <div class="mini-card blue"><div class="mini-card-icon">💬</div><div class="mini-card-text"><strong>messages</strong> — sender_id, receiver_id, content, is_read</div></div>
+                  <div class="mini-card blue"><div class="mini-card-icon">❤️</div><div class="mini-card-text"><strong>favorites</strong> — user_id, listing_id (UNIQUE)</div></div>
+                  <div class="mini-card blue"><div class="mini-card-icon">🚩</div><div class="mini-card-text"><strong>reports</strong> — reporter_id, reason, status</div></div>
+                  <div class="mini-card blue"><div class="mini-card-icon">🔔</div><div class="mini-card-text"><strong>notifications</strong> — user_id, type, content, is_read</div></div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── DOC 06 ── -->
+        <article class="doc-page" id="doc-06">
+          <div class="doc-hero" style="--accent: #f97316;">
+            <div class="doc-hero-content">
+              <div class="doc-number">06</div>
+              <h1 class="doc-title">Routes Flask principales</h1>
+              <p class="doc-subtitle">Plateforme de Colocation – Côte d'Ivoire</p>
+            </div>
+            <div class="doc-hero-icon">🛣️</div>
+          </div>
+          <div class="doc-body">
+
+            <div class="routes-section">
+              <h2>1. Authentification</h2>
+              <div class="route-table-wrap">
+                <table class="route-table">
+                  <thead><tr><th>Méthode</th><th>Route</th><th>Description</th><th>Auth</th></tr></thead>
+                  <tbody>
+                    <tr><td><span class="method post">POST</span></td><td><code>/api/auth/register</code></td><td>Inscription</td><td>–</td></tr>
+                    <tr><td><span class="method post">POST</span></td><td><code>/api/auth/login</code></td><td>Connexion</td><td>–</td></tr>
+                    <tr><td><span class="method post">POST</span></td><td><code>/api/auth/logout</code></td><td>Déconnexion</td><td>🔒</td></tr>
+                    <tr><td><span class="method post">POST</span></td><td><code>/api/auth/forgot-password</code></td><td>Réinitialisation MDP</td><td>–</td></tr>
+                    <tr><td><span class="method get">GET</span></td><td><code>/api/auth/me</code></td><td>Infos utilisateur connecté</td><td>🔒</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="routes-section">
+              <h2>2. Profil utilisateur</h2>
+              <div class="route-table-wrap">
+                <table class="route-table">
+                  <thead><tr><th>Méthode</th><th>Route</th><th>Description</th><th>Auth</th></tr></thead>
+                  <tbody>
+                    <tr><td><span class="method get">GET</span></td><td><code>/api/profile</code></td><td>Voir son profil</td><td>🔒</td></tr>
+                    <tr><td><span class="method put">PUT</span></td><td><code>/api/profile</code></td><td>Modifier son profil</td><td>🔒</td></tr>
+                    <tr><td><span class="method get">GET</span></td><td><code>/api/profile/&lt;user_id&gt;</code></td><td>Profil public d'un utilisateur</td><td>🔒</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="routes-section">
+              <h2>3. Annonces (Listings)</h2>
+              <div class="route-table-wrap">
+                <table class="route-table">
+                  <thead><tr><th>Méthode</th><th>Route</th><th>Description</th><th>Auth</th></tr></thead>
+                  <tbody>
+                    <tr><td><span class="method get">GET</span></td><td><code>/api/listings</code></td><td>Liste avec filtres</td><td>–</td></tr>
+                    <tr><td><span class="method get">GET</span></td><td><code>/api/listings/&lt;id&gt;</code></td><td>Détail d'une annonce</td><td>–</td></tr>
+                    <tr><td><span class="method post">POST</span></td><td><code>/api/listings</code></td><td>Créer une annonce</td><td>🔒</td></tr>
+                    <tr><td><span class="method put">PUT</span></td><td><code>/api/listings/&lt;id&gt;</code></td><td>Modifier</td><td>🔒 proprio</td></tr>
+                    <tr><td><span class="method delete">DELETE</span></td><td><code>/api/listings/&lt;id&gt;</code></td><td>Supprimer</td><td>🔒 proprio</td></tr>
+                    <tr><td><span class="method get">GET</span></td><td><code>/api/listings/my</code></td><td>Mes annonces</td><td>🔒</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="filter-tags">
+                <strong>Filtres :</strong>
+                <span class="filter-tag">city</span>
+                <span class="filter-tag">neighborhood</span>
+                <span class="filter-tag">min_budget</span>
+                <span class="filter-tag">max_budget</span>
+                <span class="filter-tag">room_type</span>
+                <span class="filter-tag">furnished</span>
+                <span class="filter-tag">wifi</span>
+                <span class="filter-tag">available_from</span>
+              </div>
+            </div>
+
+            <div class="routes-section">
+              <h2>4. Matching</h2>
+              <div class="route-table-wrap">
+                <table class="route-table">
+                  <thead><tr><th>Méthode</th><th>Route</th><th>Description</th><th>Auth</th></tr></thead>
+                  <tbody>
+                    <tr><td><span class="method get">GET</span></td><td><code>/api/match</code></td><td>Recherche avec score de compatibilité</td><td>🔒</td></tr>
+                    <tr><td><span class="method get">GET</span></td><td><code>/api/match/&lt;listing_id&gt;</code></td><td>Score pour une annonce précise</td><td>🔒</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="routes-section">
+              <h2>5–9. Autres modules</h2>
+              <div class="route-table-wrap">
+                <table class="route-table">
+                  <thead><tr><th>Méthode</th><th>Route</th><th>Description</th><th>Auth</th></tr></thead>
+                  <tbody>
+                    <tr><td><span class="method post">POST</span></td><td><code>/api/listings/&lt;id&gt;/photos</code></td><td>Ajouter des photos</td><td>🔒</td></tr>
+                    <tr><td><span class="method get">GET</span></td><td><code>/api/messages</code></td><td>Conversations</td><td>🔒</td></tr>
+                    <tr><td><span class="method post">POST</span></td><td><code>/api/messages</code></td><td>Envoyer un message</td><td>🔒</td></tr>
+                    <tr><td><span class="method get">GET</span></td><td><code>/api/favorites</code></td><td>Mes favoris</td><td>🔒</td></tr>
+                    <tr><td><span class="method post">POST</span></td><td><code>/api/favorites/&lt;id&gt;</code></td><td>Ajouter un favori</td><td>🔒</td></tr>
+                    <tr><td><span class="method post">POST</span></td><td><code>/api/reports</code></td><td>Signaler</td><td>🔒</td></tr>
+                    <tr><td><span class="method get">GET</span></td><td><code>/api/notifications</code></td><td>Mes notifications</td><td>🔒</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="routes-section admin-section">
+              <h2>10. Administration <span class="admin-tag">Admin only</span></h2>
+              <div class="route-table-wrap">
+                <table class="route-table">
+                  <thead><tr><th>Méthode</th><th>Route</th><th>Description</th></tr></thead>
+                  <tbody>
+                    <tr><td><span class="method get">GET</span></td><td><code>/api/admin/users</code></td><td>Liste des utilisateurs</td></tr>
+                    <tr><td><span class="method put">PUT</span></td><td><code>/api/admin/users/&lt;id&gt;/status</code></td><td>Activer / désactiver un utilisateur</td></tr>
+                    <tr><td><span class="method get">GET</span></td><td><code>/api/admin/listings</code></td><td>Toutes les annonces</td></tr>
+                    <tr><td><span class="method get">GET</span></td><td><code>/api/admin/reports</code></td><td>Signalements</td></tr>
+                    <tr><td><span class="method put">PUT</span></td><td><code>/api/admin/reports/&lt;id&gt;</code></td><td>Traiter un signalement</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <section class="doc-section">
+              <h2>Exemple de réponse JSON</h2>
+              <pre class="code-block json"><code>{
+  <span class="str">"id"</span>: <span class="num">12</span>,
+  <span class="str">"title"</span>: <span class="str">"Chambre disponible à Cocody Angré"</span>,
+  <span class="str">"city"</span>: <span class="str">"Abidjan"</span>,
+  <span class="str">"neighborhood"</span>: <span class="str">"Cocody"</span>,
+  <span class="str">"rent"</span>: <span class="num">120000</span>,
+  <span class="str">"charges"</span>: <span class="num">15000</span>,
+  <span class="str">"room_type"</span>: <span class="str">"Privée"</span>,
+  <span class="str">"compatibility_score"</span>: <span class="num">87</span>,
+  <span class="str">"score_details"</span>: {
+    <span class="str">"budget"</span>: <span class="num">100</span>,
+    <span class="str">"quartier"</span>: <span class="num">70</span>,
+    <span class="str">"mode_vie"</span>: <span class="num">90</span>,
+    <span class="str">"fumeur"</span>: <span class="num">100</span>,
+    <span class="str">"animaux"</span>: <span class="num">0</span>
+  },
+  <span class="str">"owner"</span>: { <span class="str">"id"</span>: <span class="num">5</span>, <span class="str">"first_name"</span>: <span class="str">"Michael"</span>, <span class="str">"age"</span>: <span class="num">24</span> }
+}</code></pre>
+            </section>
+          </div>
+        </article>
+
+        <!-- ── DOC 07 ── -->
+        <article class="doc-page" id="doc-07">
+          <div class="doc-hero" style="--accent: #ec4899;">
+            <div class="doc-hero-content">
+              <div class="doc-number">07</div>
+              <h1 class="doc-title">README du Projet</h1>
+              <p class="doc-subtitle">ColocCI – Plateforme de Colocation en Côte d'Ivoire</p>
+            </div>
+            <div class="doc-hero-icon">📖</div>
+          </div>
+          <div class="doc-body">
+            <section class="doc-section">
+              <h2>Description</h2>
+              <div class="highlight-box">
+                <p><strong>ColocCI</strong> est une plateforme web destinée aux étudiants et jeunes travailleurs en Côte d'Ivoire. Elle permet de trouver ou de proposer facilement une colocation grâce à un système de recherche avancée et un <strong>algorithme de matching</strong> basé sur la compatibilité des profils.</p>
+              </div>
+            </section>
+
+            <section class="doc-section">
+              <h2>Objectifs du projet</h2>
+              <ul class="styled-list green">
+                <li>Faciliter la recherche de colocation de manière structurée et sécurisée</li>
+                <li>Réduire les risques d'arnaques présents sur Facebook/WhatsApp</li>
+                <li>Proposer un score de compatibilité entre colocataires</li>
+                <li>Offrir une expérience moderne et adaptée au contexte ivoirien</li>
+              </ul>
+            </section>
+
+            <section class="doc-section">
+              <h2>Stack technique</h2>
+              <div class="stack-two-cols">
+                <div class="stack-col">
+                  <h3>Backend</h3>
+                  <div class="tech-stack">
+                    <div class="tech-item"><span class="tech-tag py">Python 3.11+</span></div>
+                    <div class="tech-item"><span class="tech-tag flask">Flask</span></div>
+                    <div class="tech-item"><span class="tech-tag orm">SQLAlchemy</span></div>
+                    <div class="tech-item"><span class="tech-tag db">MySQL</span></div>
+                    <div class="tech-item"><span class="tech-tag auth">JWT / Flask-Login</span></div>
+                    <div class="tech-item"><span class="tech-tag sec">Bcrypt</span></div>
+                  </div>
+                </div>
+                <div class="stack-col">
+                  <h3>Frontend</h3>
+                  <div class="tech-stack">
+                    <div class="tech-item"><span class="tech-tag html">HTML5</span></div>
+                    <div class="tech-item"><span class="tech-tag css">CSS3</span></div>
+                    <div class="tech-item"><span class="tech-tag js">JavaScript</span></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="doc-section">
+              <h2>Structure des fichiers</h2>
+              <pre class="code-block file-tree"><code>colocci/
+├── app/
+│   ├── __init__.py
+│   ├── models/
+│   │   ├── user.py
+│   │   ├── profile.py
+│   │   ├── listing.py
+│   │   └── message.py
+│   ├── routes/
+│   │   ├── auth.py
+│   │   ├── listings.py
+│   │   ├── matching.py
+│   │   ├── messages.py
+│   │   └── admin.py
+│   ├── services/
+│   │   └── matching.py
+│   ├── templates/
+│   ├── static/
+│   │   ├── css/
+│   │   ├── js/
+│   │   └── uploads/
+│   └── utils/
+├── migrations/
+├── config.py
+├── requirements.txt
+├── run.py
+└── README.md</code></pre>
+            </section>
+
+            <section class="doc-section">
+              <h2>Fonctionnalités</h2>
+              <div class="mvp-grid">
+                <div class="mvp-card v1">
+                  <div class="mvp-header">MVP – Version 1</div>
+                  <ul>
+                    <li>✅ Inscription / Connexion</li>
+                    <li>✅ Gestion du profil utilisateur</li>
+                    <li>✅ Création et gestion d'annonces</li>
+                    <li>✅ Recherche avec filtres</li>
+                    <li>✅ Score de compatibilité</li>
+                    <li>✅ Messagerie de base</li>
+                    <li>✅ Upload de photos</li>
+                  </ul>
+                </div>
+                <div class="mvp-card v2">
+                  <div class="mvp-header">Version 2</div>
+                  <ul>
+                    <li>⬜ Système de favoris</li>
+                    <li>⬜ Signalement d'annonces</li>
+                    <li>⬜ Notifications</li>
+                    <li>⬜ Tableau de bord admin</li>
+                    <li>⬜ Vérification d'identité</li>
+                    <li>⬜ Matching amélioré</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section class="doc-section">
+              <h2>Installation (développement)</h2>
+              <pre class="code-block shell"><code><span class="cm"># Cloner le projet</span>
+git clone &lt;url-du-repo&gt;
+cd colocci
+
+<span class="cm"># Créer un environnement virtuel</span>
+python -m venv venv
+venv\Scripts\activate     <span class="cm"># Windows</span>
+
+<span class="cm"># Installer les dépendances</span>
+pip install -r requirements.txt
+
+<span class="cm"># Configurer les variables d'environnement</span>
+cp .env.example .env
+
+<span class="cm"># Initialiser la base de données</span>
+flask db init
+flask db migrate -m <span class="str">"Initial migration"</span>
+flask db upgrade
+
+<span class="cm"># Lancer l'application</span>
+flask run</code></pre>
+            </section>
+
+            <section class="doc-section">
+              <h2>Variables d'environnement (.env)</h2>
+              <pre class="code-block env"><code>FLASK_APP=run.py
+FLASK_ENV=development
+SECRET_KEY=votre_cle_secrete
+DATABASE_URL=mysql+pymysql://user:password@localhost/colocci
+JWT_SECRET_KEY=votre_jwt_secret</code></pre>
+            </section>
+          </div>
+        </article>
+
+      </div><!-- end doc-panel -->
+
+      <!-- Bottom navigation -->
+      <nav class="bottom-nav" aria-label="Navigation entre documents">
+        <button class="nav-prev" id="navPrev" disabled>
+          <span class="nav-arrow">←</span>
+          <span class="nav-nav-label">Précédent</span>
+        </button>
+        <div class="doc-dots" id="docDots">
+          <button class="dot active" data-dot="0" aria-label="Document 1"></button>
+          <button class="dot" data-dot="1" aria-label="Document 2"></button>
+          <button class="dot" data-dot="2" aria-label="Document 3"></button>
+          <button class="dot" data-dot="3" aria-label="Document 4"></button>
+          <button class="dot" data-dot="4" aria-label="Document 5"></button>
+          <button class="dot" data-dot="5" aria-label="Document 6"></button>
+          <button class="dot" data-dot="6" aria-label="Document 7"></button>
+        </div>
+        <button class="nav-next" id="navNext">
+          <span class="nav-nav-label">Suivant</span>
+          <span class="nav-arrow">→</span>
+        </button>
+      </nav>
+    </div><!-- end content-wrap -->
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
